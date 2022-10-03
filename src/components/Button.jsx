@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 
-function Button({ label, code, color, onClickHandler }) {
+function Button({ label, code, color, onClickHandler }, ref) {
     return (
         <button
             className={`${color} rounded-full w-16 h-16 relative flex flex-col justify-center items-center cursor-pointer shadow-md`}
             onClick={onClickHandler}
+            ref={ref}
         >
             <p id="lap-reset-btn-label" className="text-base">
                 {label}
@@ -14,4 +15,4 @@ function Button({ label, code, color, onClickHandler }) {
     );
 }
 
-export default Button;
+export default memo(forwardRef(Button));
